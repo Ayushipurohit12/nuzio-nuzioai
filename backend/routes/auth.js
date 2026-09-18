@@ -7,14 +7,6 @@ const router = Router();
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || "";
 const googleClient = GOOGLE_CLIENT_ID ? new OAuth2Client(GOOGLE_CLIENT_ID) : null;
 
-/**
- * POST /api/auth/google
- * Body: { credential: "<Google ID token from GIS button>" }
- *
- * Verifies the token Google's Sign In With Google button returns, then
- * mints our own short-lived session JWT so the frontend never has to
- * store or resend the Google token again.
- */
 router.post("/google", async (req, res) => {
   const { credential } = req.body || {};
 

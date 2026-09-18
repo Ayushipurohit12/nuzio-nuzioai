@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const API_URL = (
+  import.meta.env.VITE_API_URL || "http://localhost:4000/api"
+).replace(/\/$/, "");
 
 function getToken() {
   return localStorage.getItem("nuzio_token");
@@ -14,7 +16,7 @@ async function request(path, { method = "GET", body, auth = true } = {}) {
   const res = await fetch(`${API_URL}${path}`, {
     method,
     headers,
-    body: body ? JSON.stringify(body) : undefined
+    body: body ? JSON.stringify(body) : undefined,
   });
 
   const data = await res.json().catch(() => ({}));
@@ -25,13 +27,20 @@ async function request(path, { method = "GET", body, auth = true } = {}) {
 }
 
 export const api = {
-  loginWithGoogle: (credential) => request("/auth/google", { method: "POST", body: { credential }, auth: false }),
+  loginWithGoogle: (credential) =>
+    request("/auth/google", {
+      method: "POST",
+      body: { credential },
+      auth: false,
+    }),
   loginDemo: () => request("/auth/demo", { method: "POST", auth: false }),
   me: () => request("/auth/me"),
-  getBrief: (category = "All") => request(`/news/brief?category=${encodeURIComponent(category)}`),
+  getBrief: (category = "All") =>
+    request(`/news/brief?category=${encodeURIComponent(category)}`),
   toggleSave: (id) => request(`/news/${id}/save`, { method: "POST" }),
   getSaved: () => request("/news/saved"),
-  updatePreferences: (prefs) => request("/news/preferences", { method: "PATCH", body: prefs })
+  updatePreferences: (prefs) =>
+    request("/news/preferences", { method: "PATCH", body: prefs }),
 };
 
 export function setToken(token) {

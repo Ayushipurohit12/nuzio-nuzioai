@@ -14,13 +14,6 @@ function formatDuration(totalSeconds) {
   const s = totalSeconds % 60;
   return `${m}:${String(s).padStart(2, "0")}`;
 }
-
-/**
- * Ranks/personalizes the catalog for a user:
- *  - stories in the user's preferred niches are surfaced first
- *  - everything else follows, most recent first
- * A real system would replace this with a ranking model.
- */
 function personalize(user, categoryFilter) {
   const preferred = new Set(user.preferences.niches);
 
