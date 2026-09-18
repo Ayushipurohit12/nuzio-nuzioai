@@ -18,15 +18,17 @@ const CORS_ORIGINS = (
   .filter(Boolean);
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || CORS_ORIGINS.includes(origin)) {
-      callback(null, true);
-      return;
-    }
+origin: "*",
 
-    callback(new Error("Not allowed by CORS"));
-  },
-  credentials: true,
+  // origin: (origin, callback) => {
+  //   if (!origin || CORS_ORIGINS.includes(origin)) {
+  //     callback(null, true);
+  //     return;
+  //   }
+
+  //   callback(new Error("Not allowed by CORS"));
+  // },
+  // credentials: true,
 };
 
 app.use(cors(corsOptions));
