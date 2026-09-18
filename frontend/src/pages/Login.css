@@ -1,0 +1,144 @@
+.login-screen {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 30px;
+  position: relative;
+}
+
+.login-screen::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 16px;
+  right: 16px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, rgba(106, 76, 247, 0.22) 0%, rgba(106, 76, 247, 0) 65%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.login-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding-top: 34px;
+  position: relative;
+}
+
+.login-logo {
+  filter: drop-shadow(0 0 16px rgba(106, 76, 247, 0.45));
+}
+
+.wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+}
+
+.wave-bar {
+  width: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to top, var(--accent), var(--accent-light));
+  display: inline-block;
+}
+
+.login-copy {
+  text-align: left;
+  width: 100%;
+  max-width: 280px;
+  margin-top: 34px;
+  position: relative;
+}
+
+.login-copy h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.login-copy h2 {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 2px 0 0;
+  color: var(--accent-light);
+}
+
+.login-copy p {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 250px;
+}
+
+.login-spacer {
+  flex: 1;
+}
+
+.login-actions {
+  width: 100%;
+  max-width: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-error {
+  color: #ff8080;
+  font-size: 12px;
+  margin: 0;
+  text-align: center;
+}
+
+.google-btn,
+.google-btn-wrap {
+  width: 100%;
+}
+
+.google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 14px;
+  background: var(--surface-strong);
+  border-top: 0.6px solid var(--border);
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.google-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.google-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.login-terms {
+  margin: 6px 0 0;
+  font-size: 9px;
+  color: rgba(138, 132, 128, 0.6);
+  text-align: center;
+}
+
+.login-terms a {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
