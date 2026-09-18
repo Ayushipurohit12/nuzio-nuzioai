@@ -1,5 +1,5 @@
 const API_URL = (
-  import.meta.env.VITE_API_URL || "https://nuzio-nuzioai.onrender.com/api"
+  import.meta.env.VITE_API_URL || "https://nuzio-nuzio-ai.onrender.com/api"
 ).replace(/\/$/, "");
 
 function getToken() {
